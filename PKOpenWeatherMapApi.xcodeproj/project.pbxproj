@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E705EDE820CACEFB000CAF49 /* PKWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705EDE720CACEFB000CAF49 /* PKWeatherManager.swift */; };
+		E705EDF220CAE27B000CAF49 /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705EDF120CAE27B000CAF49 /* DIManager.swift */; };
 		E7DD4B7B20CA80C3003713DC /* PKOpenWeatherMapApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DD4B7120CA80C3003713DC /* PKOpenWeatherMapApi.framework */; };
 		E7DD4B8020CA80C3003713DC /* PKOpenWeatherMapApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B7F20CA80C3003713DC /* PKOpenWeatherMapApiTests.swift */; };
 		E7DD4B8220CA80C3003713DC /* PKOpenWeatherMapApi.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E705EDE720CACEFB000CAF49 /* PKWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWeatherManager.swift; sourceTree = "<group>"; };
+		E705EDF120CAE27B000CAF49 /* DIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
 		E7DD4B7120CA80C3003713DC /* PKOpenWeatherMapApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PKOpenWeatherMapApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKOpenWeatherMapApi.h; sourceTree = "<group>"; };
 		E7DD4B7520CA80C3003713DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E705EDF020CAE271000CAF49 /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				E705EDF120CAE27B000CAF49 /* DIManager.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
 		E7DD4B6720CA80C3003713DC = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */,
+				E705EDF020CAE271000CAF49 /* DependencyInjection */,
 				E7DD4B8B20CA8DED003713DC /* Extensions */,
 				E7DD4B9020CA9781003713DC /* Models */,
 				E7DD4B8C20CA8DED003713DC /* Networking */,
@@ -117,6 +130,7 @@
 		E7DD4B8D20CA8DED003713DC /* WeatherManager */ = {
 			isa = PBXGroup;
 			children = (
+				E705EDE720CACEFB000CAF49 /* PKWeatherManager.swift */,
 			);
 			path = WeatherManager;
 			sourceTree = "<group>";
@@ -240,6 +254,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DD4B8F20CA95B6003713DC /* PKNetworkManager.swift in Sources */,
+				E705EDF220CAE27B000CAF49 /* DIManager.swift in Sources */,
+				E705EDE820CACEFB000CAF49 /* PKWeatherManager.swift in Sources */,
 				E7DD4B9220CA9792003713DC /* JSONModel.swift in Sources */,
 				E7DD4B9420CA9E93003713DC /* NetworkProtocol.swift in Sources */,
 				E7DD4B9620CAB224003713DC /* CloudModel.swift in Sources */,

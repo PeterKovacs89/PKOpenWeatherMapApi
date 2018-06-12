@@ -33,15 +33,4 @@ protocol NetworkManagerAssembler {
     func resolve() -> NetworkManagerProtocol
 }
 
-/**
- DI NetworkManagerProtocol implementation
- */
-protocol PKNetworkAssembler: NetworkManagerAssembler {}
-
-extension PKNetworkAssembler {
-    
-    func resolve() -> NetworkManagerProtocol {
-        return PKNetworkManager.shared
-    }
-}
 

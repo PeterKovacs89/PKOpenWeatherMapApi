@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CloudModel: JSONModel {
+public class CloudModel: JSONModel {
     
     required init?(with: [String : Any]?) {
         
