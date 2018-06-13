@@ -26,11 +26,19 @@ class PKSystemModel: PKJSONInitializable {
     var sunrise: TimeInterval
     var sunset: TimeInterval
     
-    required init?(with json:[String : Any]?) {
+    required init(with json:[String : Any]?) throws {
         
-        guard let country = json?[ObjectKeys.country.rawValue] as? String else { return nil }
-        guard let sunrise = json?[ObjectKeys.sunrise.rawValue] as? TimeInterval else { return nil }
-        guard let sunset = json?[ObjectKeys.sunset.rawValue] as? TimeInterval else { return nil }
+        guard let country = json?[ObjectKeys.country.rawValue] as? String else {
+            throw PKSerializationError.missing(ObjectKeys.country.rawValue, PKSystemModel.self)
+        }
+        
+        guard let sunrise = json?[ObjectKeys.sunrise.rawValue] as? TimeInterval else {
+            throw PKSerializationError.missing(ObjectKeys.sunrise.rawValue, PKSystemModel.self)
+        }
+        
+        guard let sunset = json?[ObjectKeys.sunset.rawValue] as? TimeInterval else {
+            throw PKSerializationError.missing(ObjectKeys.sunset.rawValue, PKSystemModel.self)
+        }
         
         self.country = country
         self.sunrise = sunrise

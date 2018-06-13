@@ -8,10 +8,10 @@
 
 import UIKit
 
-protocol PKJSONInitializable {
-    init?(with json:[String:Any]?)
+enum PKSerializationError: Error {
+    case missing(String, PKJSONInitializable.Type)
 }
 
-protocol PKResponseProtocol {
-    var code: Int {get set}
+protocol PKJSONInitializable {
+    init(with json:[String:Any]?) throws
 }

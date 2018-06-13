@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PKWeatherDataModel: NSObject {
+class PKWeatherDataModel: PKJSONInitializable {
     
     private enum ObjectKeys: String {
         case temperature = "temp"
@@ -28,10 +28,15 @@ class PKWeatherDataModel: NSObject {
     var seaLevelPressure: Int?
     var groundLevelPressure: Int?
     
-    required init?(with json:[String : Any]?) {
+    required init(with json:[String : Any]?) throws {
         
-        guard let temperature = json?[ObjectKeys.temperature.rawValue] as? Double else { return nil }
-        guard let humidity = json?[ObjectKeys.humidity.rawValue] as? Int else { return nil }
+        guard let temperature = json?[ObjectKeys.temperature.rawValue] as? Double else {
+            throw PKSerializationError.missing(ObjectKeys.temperature.rawValue, PKWeatherDataModel.self)
+        }
+        
+        guard let humidity = json?[ObjectKeys.humidity.rawValue] as? Int else {
+            throw PKSerializationError.missing(ObjectKeys.humidity.rawValue, PKWeatherDataModel.self)
+        }
         
         self.temperature = temperature
         self.humidity = humidity

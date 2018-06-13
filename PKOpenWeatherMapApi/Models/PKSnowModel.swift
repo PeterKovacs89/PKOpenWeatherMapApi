@@ -8,16 +8,18 @@
 
 import UIKit
 
-class PKSnowModel: NSObject {
+class PKSnowModel: PKJSONInitializable {
     private enum ObjectKeys: String {
         case volume = "3h"
     }
     
     var volume: Double /** Volume in the last 3 hours */
     
-    required init?(with json:[String : Any]?) {
+    required init(with json:[String : Any]?) throws {
         
-        guard let volume = json?[ObjectKeys.volume.rawValue] as? Double else { return nil }
+        guard let volume = json?[ObjectKeys.volume.rawValue] as? Double else {
+            throw PKSerializationError.missing(ObjectKeys.volume.rawValue, PKSnowModel.self)
+        }
         
         self.volume = volume
     }

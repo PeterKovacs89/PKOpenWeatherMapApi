@@ -16,9 +16,11 @@ public class PKCloudModel: PKJSONInitializable {
     
     var cloudiness: Int
     
-    required init?(with json:[String : Any]?) {
+    required init(with json:[String : Any]?) throws {
         
-        guard let cloudiness = json?[ObjectKeys.all.rawValue] as? Int else { return nil }
+        guard let cloudiness = json?[ObjectKeys.all.rawValue] as? Int else {
+            throw PKSerializationError.missing(ObjectKeys.all.rawValue, PKCloudModel.self)
+        }
         
         self.cloudiness = cloudiness
     }

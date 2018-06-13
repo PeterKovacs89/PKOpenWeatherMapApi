@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PKCurrentWeatherModel: NSObject {
+class PKCurrentWeatherModel: PKJSONInitializable {
     
     private enum ObjectKeys: String {
         case coordinate = "coord"
@@ -42,19 +42,28 @@ class PKCurrentWeatherModel: NSObject {
     let snow: PKSnowModel?
     let rain: PKRainModel?
     
-    required init?(with json:[String : Any]?) {
+    required init(with json:[String : Any]?) throws {
         
-        guard let timestamp = json?[ObjectKeys.timestamp.rawValue] as? TimeInterval else { return nil }
-        guard let cityId = json?[ObjectKeys.cityId.rawValue] as? Int else { return nil }
-        guard let cityName = json?[ObjectKeys.cityName.rawValue] as? String else { return nil }
-        guard let coordinate = PKCoordinateModel(with: json?[ObjectKeys.coordinate.rawValue] as? [String:Any]) else { return nil }
-        guard let weatherUI = PKWeatherUIModel(with: json?[ObjectKeys.weatherUI.rawValue] as? [String:Any]) else { return nil }
-        guard let weatherData = PKWeatherDataModel(with: json?[ObjectKeys.weatherData.rawValue] as? [String:Any]) else { return nil }
-        guard let wind = PKWindModel(with: json?[ObjectKeys.wind.rawValue] as? [String:Any]) else { return nil }
-        guard let clouds = PKCloudModel(with: json?[ObjectKeys.clouds.rawValue] as? [String:Any]) else { return nil }
-        guard let systemData = PKSystemModel(with: json?[ObjectKeys.system.rawValue] as? [String:Any]) else { return nil }
-        guard let snow = PKSnowModel(with: json?[ObjectKeys.snow.rawValue] as? [String:Any]) else { return nil }
-        guard let rain = PKRainModel(with: json?[ObjectKeys.rain.rawValue] as? [String:Any]) else { return nil }
+        guard let timestamp = json?[ObjectKeys.timestamp.rawValue] as? TimeInterval else {
+            throw PKSerializationError.missing(ObjectKeys.timestamp.rawValue, PKCurrentWeatherModel.self)
+        }
+        
+        guard let cityId = json?[ObjectKeys.cityId.rawValue] as? Int else {
+            throw PKSerializationError.missing(ObjectKeys.cityId.rawValue, PKCurrentWeatherModel.self)
+        }
+        
+        guard let cityName = json?[ObjectKeys.cityName.rawValue] as? String else {
+            throw PKSerializationError.missing(ObjectKeys.cityName.rawValue, PKCurrentWeatherModel.self)
+        }
+        
+        let coordinate = try PKCoordinateModel(with: json?[ObjectKeys.coordinate.rawValue] as? [String:Any])
+        let weatherUI = try PKWeatherUIModel(with: json?[ObjectKeys.weatherUI.rawValue] as? [String:Any])
+        let weatherData = try PKWeatherDataModel(with: json?[ObjectKeys.weatherData.rawValue] as? [String:Any])
+        let wind = try PKWindModel(with: json?[ObjectKeys.wind.rawValue] as? [String:Any])
+        let clouds = try PKCloudModel(with: json?[ObjectKeys.clouds.rawValue] as? [String:Any])
+        let systemData = try PKSystemModel(with: json?[ObjectKeys.system.rawValue] as? [String:Any])
+        let snow = try PKSnowModel(with: json?[ObjectKeys.snow.rawValue] as? [String:Any])
+        let rain = try PKRainModel(with: json?[ObjectKeys.rain.rawValue] as? [String:Any])
         
         self.timestamp = timestamp
         self.cityId = cityId

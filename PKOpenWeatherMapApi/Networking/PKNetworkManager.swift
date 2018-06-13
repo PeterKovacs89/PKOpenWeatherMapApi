@@ -74,10 +74,13 @@ class PKNetworkManager: PKNetworkManagerProtocol {
             do {
                 let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 
-                if let jsonModel = T(with: jsonResponse) {
+                do {
+                    let jsonModel = try T(with: jsonResponse)
                     completion?(jsonModel, nil)
-                } else {
-                    completion?(nil, PKNetworkError.invalidResponseDataStructure)
+                } catch PKSerializationError.missing(_, _) {
+                    completion?(nil, error)
+                } catch {
+                    completion?(nil, error)
                 }
             } catch let error {
                 completion?(nil, error)

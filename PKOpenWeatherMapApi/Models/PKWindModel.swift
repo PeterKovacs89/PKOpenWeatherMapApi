@@ -18,10 +18,15 @@ class PKWindModel: PKJSONInitializable {
     var speed: Double
     var degree: Int
     
-    required init?(with json:[String : Any]?) {
+    required init(with json:[String : Any]?) throws {
         
-        guard let speed = json?[ObjectKeys.speed.rawValue] as? Double else { return nil }
-        guard let degree = json?[ObjectKeys.degree.rawValue] as? Int else { return nil }
+        guard let speed = json?[ObjectKeys.speed.rawValue] as? Double else {
+            throw PKSerializationError.missing(ObjectKeys.speed.rawValue, PKWindModel.self)
+        }
+
+        guard let degree = json?[ObjectKeys.degree.rawValue] as? Int else {
+            throw PKSerializationError.missing(ObjectKeys.degree.rawValue, PKWindModel.self)
+        }
         
         self.speed = speed
         self.degree = degree

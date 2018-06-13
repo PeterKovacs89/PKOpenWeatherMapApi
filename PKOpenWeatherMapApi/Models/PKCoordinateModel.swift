@@ -20,10 +20,15 @@ class PKCoordinateModel: PKJSONInitializable {
     
     var coordinate: CLLocationCoordinate2D
     
-    required init?(with json:[String : Any]?) {
+    required init(with json:[String : Any]?) throws {
         
-        guard let latitude = json?[ObjectKeys.latitude.rawValue] as? CLLocationDegrees else { return nil }
-        guard let longitude = json?[ObjectKeys.longitude.rawValue] as? CLLocationDegrees else { return nil }
+        guard let latitude = json?[ObjectKeys.latitude.rawValue] as? CLLocationDegrees else {
+            throw PKSerializationError.missing(ObjectKeys.latitude.rawValue, PKCoordinateModel.self)
+        }
+        
+        guard let longitude = json?[ObjectKeys.longitude.rawValue] as? CLLocationDegrees else {
+            throw PKSerializationError.missing(ObjectKeys.longitude.rawValue, PKCoordinateModel.self)
+        }
         
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
