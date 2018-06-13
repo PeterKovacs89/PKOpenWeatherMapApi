@@ -53,7 +53,7 @@ public class PKWeatherManager {
     
     private let assembler = PKLiveAssembler()
     
-    private lazy var networkManager: NetworkManagerProtocol = {
+    private lazy var networkManager: PKNetworkManagerProtocol = {
         return self.assembler.resolve()
     }()
     
@@ -65,7 +65,7 @@ public class PKWeatherManager {
         self.preferredUnits = preferredUnits
     }
     
-    fileprivate func generalRequest<T:JSONModel>(with endPoint:PKWeatherAPIEndPoint, params:[PKQueryParameter:String], completionBlock:@escaping NetworkResponse<T>) {
+    fileprivate func generalRequest<T:PKJSONInitializable>(with endPoint:PKWeatherAPIEndPoint, params:[PKQueryParameter:String], completionBlock:@escaping PKNetworkResponse<T>) {
         
         let baseUrl = ServerConfiguration.forgeUrlString(with: endPoint)
         
@@ -83,7 +83,7 @@ public class PKWeatherManager {
 //MARK: - Current Weather Data
 public extension PKWeatherManager {
     
-    public typealias PKCurrentWeatherCompletionBlock = ((CloudModel?, Error?)->())
+    public typealias PKCurrentWeatherCompletionBlock = ((PKCloudModel?, Error?)->())
     
     /** Weather request */
     public func requestCurrentWeather(with cityName:String, countryCode:String? = nil, completion:@escaping PKCurrentWeatherCompletionBlock) {

@@ -1,5 +1,5 @@
 //
-//  DIManager.swift
+//  PKLiveAssembler.swift
 //  PKOpenWeatherMapApi
 //
 //  Created by PeterKovacs on 2018. 06. 08..
@@ -11,11 +11,11 @@ import Foundation
 /**
  DI NetworkManagerProtocol implementation
  */
-protocol PKNetworkAssembler: NetworkManagerAssembler {}
+protocol PKNetworkAssembler: PKNetworkManagerAssembler {}
 
 extension PKNetworkAssembler {
     
-    func resolve() -> NetworkManagerProtocol {
+    func resolve() -> PKNetworkManagerProtocol {
         return PKNetworkManager.shared
     }
 }

@@ -8,14 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		E705EDE820CACEFB000CAF49 /* PKWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705EDE720CACEFB000CAF49 /* PKWeatherManager.swift */; };
-		E705EDF220CAE27B000CAF49 /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705EDF120CAE27B000CAF49 /* DIManager.swift */; };
+		E705EDF220CAE27B000CAF49 /* PKLiveAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705EDF120CAE27B000CAF49 /* PKLiveAssembler.swift */; };
+		E759DD6620D0F68300523130 /* PKWeatherUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6520D0F68300523130 /* PKWeatherUIModel.swift */; };
+		E759DD6820D124AF00523130 /* PKWeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6720D124AF00523130 /* PKWeatherDataModel.swift */; };
+		E759DD6A20D12D6C00523130 /* PKCurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6920D12D6C00523130 /* PKCurrentWeatherModel.swift */; };
+		E759DD6C20D137C100523130 /* PKSnowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6B20D137C100523130 /* PKSnowModel.swift */; };
+		E759DD6E20D138FC00523130 /* PKRainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6D20D138FC00523130 /* PKRainModel.swift */; };
 		E7DD4B7B20CA80C3003713DC /* PKOpenWeatherMapApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DD4B7120CA80C3003713DC /* PKOpenWeatherMapApi.framework */; };
 		E7DD4B8020CA80C3003713DC /* PKOpenWeatherMapApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B7F20CA80C3003713DC /* PKOpenWeatherMapApiTests.swift */; };
 		E7DD4B8220CA80C3003713DC /* PKOpenWeatherMapApi.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7DD4B8F20CA95B6003713DC /* PKNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B8E20CA95B6003713DC /* PKNetworkManager.swift */; };
-		E7DD4B9220CA9792003713DC /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B9120CA9792003713DC /* JSONModel.swift */; };
-		E7DD4B9420CA9E93003713DC /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B9320CA9E93003713DC /* NetworkProtocol.swift */; };
-		E7DD4B9620CAB224003713DC /* CloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B9520CAB224003713DC /* CloudModel.swift */; };
+		E7DD4B9220CA9792003713DC /* PKJSONInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B9120CA9792003713DC /* PKJSONInitializable.swift */; };
+		E7DD4B9420CA9E93003713DC /* PKNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B9320CA9E93003713DC /* PKNetworkProtocol.swift */; };
+		E7DD4B9620CAB224003713DC /* PKCloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B9520CAB224003713DC /* PKCloudModel.swift */; };
+		E7E5A1D620D0336D00F2FEDA /* PKWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E5A1D520D0336D00F2FEDA /* PKWindModel.swift */; };
+		E7E5A1D820D0348900F2FEDA /* PKCoordinateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E5A1D720D0348900F2FEDA /* PKCoordinateModel.swift */; };
+		E7E5A1DA20D03B5800F2FEDA /* PKSystemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E5A1D920D03B5800F2FEDA /* PKSystemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +38,12 @@
 
 /* Begin PBXFileReference section */
 		E705EDE720CACEFB000CAF49 /* PKWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWeatherManager.swift; sourceTree = "<group>"; };
-		E705EDF120CAE27B000CAF49 /* DIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
+		E705EDF120CAE27B000CAF49 /* PKLiveAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKLiveAssembler.swift; sourceTree = "<group>"; };
+		E759DD6520D0F68300523130 /* PKWeatherUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWeatherUIModel.swift; sourceTree = "<group>"; };
+		E759DD6720D124AF00523130 /* PKWeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWeatherDataModel.swift; sourceTree = "<group>"; };
+		E759DD6920D12D6C00523130 /* PKCurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCurrentWeatherModel.swift; sourceTree = "<group>"; };
+		E759DD6B20D137C100523130 /* PKSnowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKSnowModel.swift; sourceTree = "<group>"; };
+		E759DD6D20D138FC00523130 /* PKRainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKRainModel.swift; sourceTree = "<group>"; };
 		E7DD4B7120CA80C3003713DC /* PKOpenWeatherMapApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PKOpenWeatherMapApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKOpenWeatherMapApi.h; sourceTree = "<group>"; };
 		E7DD4B7520CA80C3003713DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,9 +51,12 @@
 		E7DD4B7F20CA80C3003713DC /* PKOpenWeatherMapApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKOpenWeatherMapApiTests.swift; sourceTree = "<group>"; };
 		E7DD4B8120CA80C3003713DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7DD4B8E20CA95B6003713DC /* PKNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKNetworkManager.swift; sourceTree = "<group>"; };
-		E7DD4B9120CA9792003713DC /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
-		E7DD4B9320CA9E93003713DC /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
-		E7DD4B9520CAB224003713DC /* CloudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudModel.swift; sourceTree = "<group>"; };
+		E7DD4B9120CA9792003713DC /* PKJSONInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKJSONInitializable.swift; sourceTree = "<group>"; };
+		E7DD4B9320CA9E93003713DC /* PKNetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKNetworkProtocol.swift; sourceTree = "<group>"; };
+		E7DD4B9520CAB224003713DC /* PKCloudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCloudModel.swift; sourceTree = "<group>"; };
+		E7E5A1D520D0336D00F2FEDA /* PKWindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWindModel.swift; sourceTree = "<group>"; };
+		E7E5A1D720D0348900F2FEDA /* PKCoordinateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCoordinateModel.swift; sourceTree = "<group>"; };
+		E7E5A1D920D03B5800F2FEDA /* PKSystemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKSystemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +81,7 @@
 		E705EDF020CAE271000CAF49 /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
-				E705EDF120CAE27B000CAF49 /* DIManager.swift */,
+				E705EDF120CAE27B000CAF49 /* PKLiveAssembler.swift */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";
@@ -121,7 +137,7 @@
 		E7DD4B8C20CA8DED003713DC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				E7DD4B9320CA9E93003713DC /* NetworkProtocol.swift */,
+				E7DD4B9320CA9E93003713DC /* PKNetworkProtocol.swift */,
 				E7DD4B8E20CA95B6003713DC /* PKNetworkManager.swift */,
 			);
 			path = Networking;
@@ -138,8 +154,16 @@
 		E7DD4B9020CA9781003713DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E7DD4B9120CA9792003713DC /* JSONModel.swift */,
-				E7DD4B9520CAB224003713DC /* CloudModel.swift */,
+				E7DD4B9120CA9792003713DC /* PKJSONInitializable.swift */,
+				E7DD4B9520CAB224003713DC /* PKCloudModel.swift */,
+				E7E5A1D520D0336D00F2FEDA /* PKWindModel.swift */,
+				E7E5A1D720D0348900F2FEDA /* PKCoordinateModel.swift */,
+				E7E5A1D920D03B5800F2FEDA /* PKSystemModel.swift */,
+				E759DD6520D0F68300523130 /* PKWeatherUIModel.swift */,
+				E759DD6720D124AF00523130 /* PKWeatherDataModel.swift */,
+				E759DD6B20D137C100523130 /* PKSnowModel.swift */,
+				E759DD6D20D138FC00523130 /* PKRainModel.swift */,
+				E759DD6920D12D6C00523130 /* PKCurrentWeatherModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +224,7 @@
 		E7DD4B6820CA80C3003713DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PK;
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = PeterKovacs;
@@ -254,11 +279,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DD4B8F20CA95B6003713DC /* PKNetworkManager.swift in Sources */,
-				E705EDF220CAE27B000CAF49 /* DIManager.swift in Sources */,
+				E705EDF220CAE27B000CAF49 /* PKLiveAssembler.swift in Sources */,
+				E759DD6C20D137C100523130 /* PKSnowModel.swift in Sources */,
 				E705EDE820CACEFB000CAF49 /* PKWeatherManager.swift in Sources */,
-				E7DD4B9220CA9792003713DC /* JSONModel.swift in Sources */,
-				E7DD4B9420CA9E93003713DC /* NetworkProtocol.swift in Sources */,
-				E7DD4B9620CAB224003713DC /* CloudModel.swift in Sources */,
+				E7E5A1D820D0348900F2FEDA /* PKCoordinateModel.swift in Sources */,
+				E7DD4B9220CA9792003713DC /* PKJSONInitializable.swift in Sources */,
+				E759DD6A20D12D6C00523130 /* PKCurrentWeatherModel.swift in Sources */,
+				E759DD6620D0F68300523130 /* PKWeatherUIModel.swift in Sources */,
+				E759DD6E20D138FC00523130 /* PKRainModel.swift in Sources */,
+				E7E5A1D620D0336D00F2FEDA /* PKWindModel.swift in Sources */,
+				E7E5A1DA20D03B5800F2FEDA /* PKSystemModel.swift in Sources */,
+				E7DD4B9420CA9E93003713DC /* PKNetworkProtocol.swift in Sources */,
+				E7DD4B9620CAB224003713DC /* PKCloudModel.swift in Sources */,
+				E759DD6820D124AF00523130 /* PKWeatherDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

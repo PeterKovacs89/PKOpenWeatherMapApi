@@ -18,9 +18,9 @@ enum PKNetworkError: Error {
 }
 
 /**
- Default implementation of NetworkManagerProtocol. Its' main role is communicating with the data servers
+ Default implementation of PKNetworkManagerProtocol. Its' main role is communicating with the data servers
  */
-class PKNetworkManager: NetworkManagerProtocol {
+class PKNetworkManager: PKNetworkManagerProtocol {
     
     /**
      Singleton accessor
@@ -41,7 +41,7 @@ class PKNetworkManager: NetworkManagerProtocol {
      @param parameters: query parameters of the request
      @param completion: completion block of the request
      */
-    func getRequest<T>(urlString: String, parameters: [String : String]?, completion: NetworkResponse<T>?) {
+    func getRequest<T>(urlString: String, parameters: [String : String]?, completion: PKNetworkResponse<T>?) {
         
         guard var urlComponents = URLComponents(string: urlString) else {
             completion?(nil, PKNetworkError.invalidURL)
