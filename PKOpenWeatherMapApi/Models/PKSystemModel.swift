@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PKSystemModel: PKJSONInitializable {
+public class PKSystemModel: PKJSONInitializable {
 
     private enum ObjectKeys: String {
         case type
@@ -19,12 +19,12 @@ class PKSystemModel: PKJSONInitializable {
         case sunset
     }
     
-    private var systemType: Int?
-    private var systemId: Int?
-    private var systemMessage: Double?
-    var country: String
-    var sunrise: TimeInterval
-    var sunset: TimeInterval
+    private let systemType: Int?
+    private let systemId: Int?
+    private let systemMessage: Double?
+    public let country: String
+    public let sunrise: TimeInterval?
+    public let sunset: TimeInterval?
     
     required init(with json:[String : Any]?) throws {
         
@@ -32,17 +32,9 @@ class PKSystemModel: PKJSONInitializable {
             throw PKSerializationError.missing(ObjectKeys.country.rawValue, PKSystemModel.self)
         }
         
-        guard let sunrise = json?[ObjectKeys.sunrise.rawValue] as? TimeInterval else {
-            throw PKSerializationError.missing(ObjectKeys.sunrise.rawValue, PKSystemModel.self)
-        }
-        
-        guard let sunset = json?[ObjectKeys.sunset.rawValue] as? TimeInterval else {
-            throw PKSerializationError.missing(ObjectKeys.sunset.rawValue, PKSystemModel.self)
-        }
-        
         self.country = country
-        self.sunrise = sunrise
-        self.sunset = sunset
+        self.sunrise = json?[ObjectKeys.sunrise.rawValue] as? TimeInterval
+        self.sunset = json?[ObjectKeys.sunset.rawValue] as? TimeInterval
         
         self.systemId = json?[ObjectKeys.systemId.rawValue] as? Int
         self.systemType = json?[ObjectKeys.type.rawValue] as? Int

@@ -11,14 +11,14 @@ import Foundation
 import CoreLocation
 
 
-class PKCoordinateModel: PKJSONInitializable {
+public class PKCoordinateModel: PKJSONInitializable {
 
     private enum ObjectKeys: String {
         case latitude = "lat"
         case longitude = "lon"
     }
     
-    var coordinate: CLLocationCoordinate2D
+    public let coordinate: CLLocationCoordinate2D
     
     required init(with json:[String : Any]?) throws {
         

@@ -8,12 +8,13 @@
 
 import UIKit
 
-class PKRainModel: PKJSONInitializable {
+public class PKRainModel: PKJSONInitializable {
+    
     private enum ObjectKeys: String {
         case volume = "3h"
     }
     
-    var volume: Double /** Volume in the last 3 hours */
+    public let volume: Double /** Volume in the last 3 hours */
     
     required init(with json:[String : Any]?) throws {
         

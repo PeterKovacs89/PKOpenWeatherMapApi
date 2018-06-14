@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PKWeatherUIModel: PKJSONInitializable {
+public class PKWeatherUIModel: PKJSONInitializable {
 
     private enum ObjectKeys: String {
         case weatherId = "id"
@@ -17,10 +17,10 @@ class PKWeatherUIModel: PKJSONInitializable {
         case icon
     }
     
-    var weatherId: Int
-    var mainParameter: String
-    var description: String
-    var iconId: String
+    public let weatherId: Int
+    public let mainParameter: String
+    public let description: String
+    public let iconId: String
     
     required init(with json:[String : Any]?) throws {
         

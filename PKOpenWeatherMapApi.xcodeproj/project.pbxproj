@@ -11,9 +11,10 @@
 		E705EDF220CAE27B000CAF49 /* PKLiveAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705EDF120CAE27B000CAF49 /* PKLiveAssembler.swift */; };
 		E759DD6620D0F68300523130 /* PKWeatherUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6520D0F68300523130 /* PKWeatherUIModel.swift */; };
 		E759DD6820D124AF00523130 /* PKWeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6720D124AF00523130 /* PKWeatherDataModel.swift */; };
-		E759DD6A20D12D6C00523130 /* PKCurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6920D12D6C00523130 /* PKCurrentWeatherModel.swift */; };
+		E759DD6A20D12D6C00523130 /* PKCityWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6920D12D6C00523130 /* PKCityWeatherModel.swift */; };
 		E759DD6C20D137C100523130 /* PKSnowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6B20D137C100523130 /* PKSnowModel.swift */; };
 		E759DD6E20D138FC00523130 /* PKRainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6D20D138FC00523130 /* PKRainModel.swift */; };
+		E759DD7020D16F4700523130 /* PKCityWeatherListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6F20D16F4700523130 /* PKCityWeatherListModel.swift */; };
 		E7DD4B7B20CA80C3003713DC /* PKOpenWeatherMapApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DD4B7120CA80C3003713DC /* PKOpenWeatherMapApi.framework */; };
 		E7DD4B8020CA80C3003713DC /* PKOpenWeatherMapApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B7F20CA80C3003713DC /* PKOpenWeatherMapApiTests.swift */; };
 		E7DD4B8220CA80C3003713DC /* PKOpenWeatherMapApi.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,9 +42,10 @@
 		E705EDF120CAE27B000CAF49 /* PKLiveAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKLiveAssembler.swift; sourceTree = "<group>"; };
 		E759DD6520D0F68300523130 /* PKWeatherUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWeatherUIModel.swift; sourceTree = "<group>"; };
 		E759DD6720D124AF00523130 /* PKWeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWeatherDataModel.swift; sourceTree = "<group>"; };
-		E759DD6920D12D6C00523130 /* PKCurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCurrentWeatherModel.swift; sourceTree = "<group>"; };
+		E759DD6920D12D6C00523130 /* PKCityWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCityWeatherModel.swift; sourceTree = "<group>"; };
 		E759DD6B20D137C100523130 /* PKSnowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKSnowModel.swift; sourceTree = "<group>"; };
 		E759DD6D20D138FC00523130 /* PKRainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKRainModel.swift; sourceTree = "<group>"; };
+		E759DD6F20D16F4700523130 /* PKCityWeatherListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCityWeatherListModel.swift; sourceTree = "<group>"; };
 		E7DD4B7120CA80C3003713DC /* PKOpenWeatherMapApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PKOpenWeatherMapApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKOpenWeatherMapApi.h; sourceTree = "<group>"; };
 		E7DD4B7520CA80C3003713DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,7 +165,8 @@
 				E759DD6720D124AF00523130 /* PKWeatherDataModel.swift */,
 				E759DD6B20D137C100523130 /* PKSnowModel.swift */,
 				E759DD6D20D138FC00523130 /* PKRainModel.swift */,
-				E759DD6920D12D6C00523130 /* PKCurrentWeatherModel.swift */,
+				E759DD6920D12D6C00523130 /* PKCityWeatherModel.swift */,
+				E759DD6F20D16F4700523130 /* PKCityWeatherListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,13 +281,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E759DD7020D16F4700523130 /* PKCityWeatherListModel.swift in Sources */,
 				E7DD4B8F20CA95B6003713DC /* PKNetworkManager.swift in Sources */,
 				E705EDF220CAE27B000CAF49 /* PKLiveAssembler.swift in Sources */,
 				E759DD6C20D137C100523130 /* PKSnowModel.swift in Sources */,
 				E705EDE820CACEFB000CAF49 /* PKWeatherManager.swift in Sources */,
 				E7E5A1D820D0348900F2FEDA /* PKCoordinateModel.swift in Sources */,
 				E7DD4B9220CA9792003713DC /* PKJSONInitializable.swift in Sources */,
-				E759DD6A20D12D6C00523130 /* PKCurrentWeatherModel.swift in Sources */,
+				E759DD6A20D12D6C00523130 /* PKCityWeatherModel.swift in Sources */,
 				E759DD6620D0F68300523130 /* PKWeatherUIModel.swift in Sources */,
 				E759DD6E20D138FC00523130 /* PKRainModel.swift in Sources */,
 				E7E5A1D620D0336D00F2FEDA /* PKWindModel.swift in Sources */,
@@ -366,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -423,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -447,6 +451,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PKOpenWeatherMapApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,6 +479,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = PKOpenWeatherMapApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

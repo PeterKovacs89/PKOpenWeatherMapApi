@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PKWeatherDataModel: PKJSONInitializable {
+public class PKWeatherDataModel: PKJSONInitializable {
     
     private enum ObjectKeys: String {
         case temperature = "temp"
@@ -20,13 +20,13 @@ class PKWeatherDataModel: PKJSONInitializable {
         case groundLevelPressure = "grnd_level"
     }
     
-    var temperature: Double
-    var humidity: Int
-    var minTemperature: Double?
-    var maxTemperature: Double?
-    var pressure: Int?
-    var seaLevelPressure: Int?
-    var groundLevelPressure: Int?
+    public let temperature: Double
+    public let humidity: Int
+    public let minTemperature: Double?
+    public let maxTemperature: Double?
+    public let pressure: Int?
+    public let seaLevelPressure: Int?
+    public let groundLevelPressure: Int?
     
     required init(with json:[String : Any]?) throws {
         

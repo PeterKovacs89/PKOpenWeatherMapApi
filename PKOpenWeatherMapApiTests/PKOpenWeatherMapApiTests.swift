@@ -11,9 +11,15 @@ import XCTest
 
 class PKOpenWeatherMapApiTests: XCTestCase {
     
+    var weatherManager:PKWeatherManager?
+    
+    static let apiKey = ""
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        self.weatherManager = PKWeatherManager(with: PKOpenWeatherMapApiTests.apiKey, preferredUnits: .standard)
     }
     
     override func tearDown() {
@@ -22,8 +28,15 @@ class PKOpenWeatherMapApiTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let expectation = XCTestExpectation(description: "Download weather data")
+        
+        self.weatherManager?.requestCurrentWeather(cityName: "Szeged", countryCode: "hu", completion: { (weather, error) in
+            
+            expectation.fulfill()
+        })
+        
+        wait(for: [expectation], timeout: 10.0)
     }
     
     func testPerformanceExample() {

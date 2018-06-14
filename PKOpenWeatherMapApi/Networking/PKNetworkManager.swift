@@ -77,13 +77,14 @@ class PKNetworkManager: PKNetworkManagerProtocol {
                 do {
                     let jsonModel = try T(with: jsonResponse)
                     completion?(jsonModel, nil)
-                } catch PKSerializationError.missing(_, _) {
+                } catch PKSerializationError.missing( let key, let inModel) {
+                    print("Missing \(key) key in \(inModel)")
                     completion?(nil, error)
-                } catch {
-                    completion?(nil, error)
+                } catch let parserError {
+                    completion?(nil, parserError)
                 }
-            } catch let error {
-                completion?(nil, error)
+            } catch let serializationError {
+                completion?(nil, serializationError)
                 return
             }
             

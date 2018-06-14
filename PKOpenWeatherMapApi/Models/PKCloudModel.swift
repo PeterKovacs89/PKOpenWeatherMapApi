@@ -14,7 +14,7 @@ public class PKCloudModel: PKJSONInitializable {
         case all
     }
     
-    var cloudiness: Int
+    public let cloudiness: Int
     
     required init(with json:[String : Any]?) throws {
         
