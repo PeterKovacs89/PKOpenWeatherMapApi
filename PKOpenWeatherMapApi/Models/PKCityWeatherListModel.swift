@@ -13,6 +13,7 @@ public class PKCityWeatherListModel: PKJSONInitializable {
     private enum ObjectKeys: String {
         case cityList = "list"
         case elementCount = "cnt"
+        case elementCountVersion2 = "count"
         case cod
     }
     
@@ -23,7 +24,12 @@ public class PKCityWeatherListModel: PKJSONInitializable {
     
     required init(with json:[String : Any]?) throws {
         
-        guard let elementCount = json?[ObjectKeys.elementCount.rawValue] as? Int else {
+        if let elementCount = json?[ObjectKeys.elementCount.rawValue] as? Int {
+            self.elementCount = elementCount
+        }
+        else if let elementCount = json?[ObjectKeys.elementCountVersion2.rawValue] as? Int {
+            self.elementCount = elementCount
+        } else {
             throw PKSerializationError.missing(ObjectKeys.elementCount.rawValue, PKCityWeatherListModel.self)
         }
         
@@ -39,7 +45,6 @@ public class PKCityWeatherListModel: PKJSONInitializable {
         }
         
         self.cityWeatherList = cityWeatherList
-        self.elementCount = elementCount
         self.cod = json?[ObjectKeys.cod.rawValue] as? Int
     }
 }

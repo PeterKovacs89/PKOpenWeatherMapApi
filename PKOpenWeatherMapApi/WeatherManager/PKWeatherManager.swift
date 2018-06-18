@@ -11,11 +11,16 @@ import CoreLocation
 
 public enum UnitType: String {
 
-    case imperial   /** Temperatures will be shown in Fahrenheit, speeds in miles/hour */
-    case metric     /** Temperatures will be shown in Celsius, speeds in meter/sec */
-    case standard   /** Temperatures will be shown in Kelvin, speeds in meter/sec */
+    /** Temperatures will be shown in Fahrenheit, speeds in miles/hour */
+    case imperial
     
-    var queryParameterValue: String? {
+    /** Temperatures will be shown in Celsius, speeds in meter/sec */
+    case metric
+    
+    /** Temperatures will be shown in Kelvin, speeds in meter/sec */
+    case standard
+    
+    fileprivate var queryParameterValue: String? {
         
         switch self {
         case .imperial, .metric: return self.rawValue
@@ -51,7 +56,7 @@ public class PKWeatherManager {
         static let apiVersion = "2.5"
         
         static var serverUrl: String {
-            return "\(ServerConfiguration.baseUrl)/\(ServerConfiguration.apiVersion)/"
+            return "\(ServerConfiguration.baseUrl)/\(ServerConfiguration.apiVersion)"
         }
         
         static func forgeUrlString(with apiEndPoint:PKWeatherAPIEndPoint) -> String {
@@ -165,11 +170,17 @@ public extension PKWeatherManager {
     /** Current weather for list of cities, upper limit is 20 for one request */
     public func requestCurrentWeather(cityIds:[Int], completion:@escaping PKCityWeatherListCompletionBlock) {
         
-        let cities: [String] = Array(cityIds[0 ..< 20]).map({String($0)})
+        let cities: [String]
+        
+        if cityIds.count > 20 {
+            cities = Array(cityIds[0 ..< 20]).map({String($0)})
+        } else {
+            cities = cityIds.map({String($0)})
+        }
         
         var parameters = [PKQueryParameter: String]()
         parameters[.cityId] = cities.joined(separator: ",")
         
-        self.generalRequest(with: .circularSearch, params: parameters, completionBlock: completion)
+        self.generalRequest(with: .cityIds, params: parameters, completionBlock: completion)
     }
 }

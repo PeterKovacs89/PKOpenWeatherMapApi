@@ -13,14 +13,25 @@ import UIKit
  */
 enum PKNetworkError: Error {
     
-    case invalidURL /** Invalid base url */
-    case invalidResponseDataStructure /** The expected response object could not been parsed from the received json data */
+     /** Invalid base url */
+    case invalidURL
+    
+     /** The expected response object could not been parsed from the received json data */
+    case invalidResponseDataStructure
+    
+    /** Business logic error from the server */
+    case businessError(code:Int, message:String)
 }
 
 /**
  Default implementation of PKNetworkManagerProtocol. Its' main role is communicating with the data servers
  */
 class PKNetworkManager: PKNetworkManagerProtocol {
+    
+    private enum ObjectKeys: String {
+        case code = "cod"
+        case message
+    }
     
     /**
      Singleton accessor
@@ -72,7 +83,17 @@ class PKNetworkManager: PKNetworkManagerProtocol {
             }
             
             do {
-                let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                guard let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                    completion?(nil, PKNetworkError.invalidResponseDataStructure)
+                    return
+                }
+                
+                let businessError = self.checkErrorCode(in: jsonResponse)
+                
+                guard businessError == nil else {
+                    completion?(nil, businessError)
+                    return
+                }
                 
                 do {
                     let jsonModel = try T(with: jsonResponse)
@@ -89,5 +110,39 @@ class PKNetworkManager: PKNetworkManagerProtocol {
             }
             
         }.resume()
+    }
+    
+    fileprivate func checkErrorCode(in response:[String: Any]) -> Error? {
+        
+        let error:Error?
+        
+        let responseCode: Int?
+        
+        if let value = response[ObjectKeys.code.rawValue] {
+            
+            if let intValue = value as? Int {
+                responseCode = intValue
+            } else if let stringValue = value as? String {
+                responseCode = Int(stringValue)
+            } else {
+                responseCode = nil
+            }
+        } else {
+            responseCode = nil
+        }
+        
+        if let code = responseCode {
+            
+            if (code == 200) {
+                error = nil
+            } else {
+                error = PKNetworkError.businessError(code: code, message: (response[ObjectKeys.message.rawValue] as? String) ?? "Missing message")
+            }
+        } else {
+            //Response code is also optional...
+            error = nil
+        }
+        
+        return error
     }
 }

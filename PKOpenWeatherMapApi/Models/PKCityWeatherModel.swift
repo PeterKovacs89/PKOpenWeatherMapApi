@@ -22,12 +22,10 @@ public class PKCityWeatherModel: PKJSONInitializable {
         case timestamp = "dt"
         case cityId = "id"
         case cityName = "name"
-        case cod
         case base
     }
     
     private let base: String?
-    private let cod: Int?
     
     public let coordinate: PKCoordinateModel
     public let weatherUI: PKWeatherUIModel
@@ -35,7 +33,7 @@ public class PKCityWeatherModel: PKJSONInitializable {
     public let wind: PKWindModel
     public let clouds: PKCloudModel
     public let timestamp: TimeInterval
-    public let systemData: PKSystemModel
+    public let systemData: PKSystemModel?
     public let cityId: Int
     public let cityName: String
     
@@ -61,7 +59,13 @@ public class PKCityWeatherModel: PKJSONInitializable {
         let weatherData = try PKWeatherDataModel(with: json?[ObjectKeys.weatherData.rawValue] as? [String:Any])
         let wind = try PKWindModel(with: json?[ObjectKeys.wind.rawValue] as? [String:Any])
         let clouds = try PKCloudModel(with: json?[ObjectKeys.clouds.rawValue] as? [String:Any])
-        let systemData = try PKSystemModel(with: json?[ObjectKeys.system.rawValue] as? [String:Any])
+        
+        if let systemData = json?[ObjectKeys.system.rawValue] as? [String:Any] {
+            let system = try PKSystemModel(with: systemData)
+            self.systemData = system
+        } else {
+            self.systemData = nil
+        }
         
         if let snowData = json?[ObjectKeys.snow.rawValue] as? [String:Any] {
             let snow = try PKSnowModel(with: snowData)
@@ -85,9 +89,7 @@ public class PKCityWeatherModel: PKJSONInitializable {
         self.weatherData = weatherData
         self.wind = wind
         self.clouds = clouds
-        self.systemData = systemData
         
         self.base = json?[ObjectKeys.base.rawValue] as? String
-        self.cod = json?[ObjectKeys.cod.rawValue] as? Int
     }
 }
