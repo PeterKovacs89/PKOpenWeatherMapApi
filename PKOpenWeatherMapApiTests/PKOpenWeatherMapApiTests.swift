@@ -31,7 +31,7 @@ class PKOpenWeatherMapApiTests: XCTestCase {
     }
 }
 
-//MARK: - Full Api call tests
+//MARK: - Current Weather Api call tests
 extension PKOpenWeatherMapApiTests {
     
     func testCurrentWeatherWithCityNameAndCountryCode() {

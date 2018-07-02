@@ -27,15 +27,13 @@ public class PKCityWeatherModel: PKJSONInitializable {
     
     private let base: String?
     
-    public let coordinate: PKCoordinateModel
     public let weatherUI: PKWeatherUIModel
     public let weatherData: PKWeatherDataModel
     public let wind: PKWindModel
     public let clouds: PKCloudModel
     public let timestamp: TimeInterval
     public let systemData: PKSystemModel?
-    public let cityId: Int
-    public let cityName: String
+    public let city: PKCityModel
     
     public let snow: PKSnowModel?
     public let rain: PKRainModel?
@@ -46,14 +44,8 @@ public class PKCityWeatherModel: PKJSONInitializable {
             throw PKSerializationError.missing(ObjectKeys.timestamp.rawValue, PKCityWeatherModel.self)
         }
         
-        guard let cityId = json?[ObjectKeys.cityId.rawValue] as? Int else {
-            throw PKSerializationError.missing(ObjectKeys.cityId.rawValue, PKCityWeatherModel.self)
-        }
-        
-        guard let cityName = json?[ObjectKeys.cityName.rawValue] as? String else {
-            throw PKSerializationError.missing(ObjectKeys.cityName.rawValue, PKCityWeatherModel.self)
-        }
-        
+        let cityId = json?[ObjectKeys.cityId.rawValue] as? Int ?? 0
+        let cityName = json?[ObjectKeys.cityName.rawValue] as? String ?? ""
         let coordinate = try PKCoordinateModel(with: json?[ObjectKeys.coordinate.rawValue] as? [String:Any])
         let weatherUI = try PKWeatherUIModel(with: (json?[ObjectKeys.weatherUI.rawValue] as? [[String:Any]])?.first)
         let weatherData = try PKWeatherDataModel(with: json?[ObjectKeys.weatherData.rawValue] as? [String:Any])
@@ -82,9 +74,7 @@ public class PKCityWeatherModel: PKJSONInitializable {
         }
         
         self.timestamp = timestamp
-        self.cityId = cityId
-        self.cityName = cityName
-        self.coordinate = coordinate
+        self.city = PKCityModel(cityId: cityId, name:cityName, country: nil, coordinate: coordinate)
         self.weatherUI = weatherUI
         self.weatherData = weatherData
         self.wind = wind
