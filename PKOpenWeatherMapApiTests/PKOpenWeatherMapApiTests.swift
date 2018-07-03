@@ -11,7 +11,6 @@ import CoreLocation
 
 @testable import PKOpenWeatherMapApi
 
-
 class PKOpenWeatherMapApiTests: XCTestCase {
     
     var weatherManager:PKWeatherManager?
@@ -21,7 +20,6 @@ class PKOpenWeatherMapApiTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
         self.weatherManager = PKWeatherManager(with: PKOpenWeatherMapApiTests.apiKey, preferredUnits: .standard)
     }
     

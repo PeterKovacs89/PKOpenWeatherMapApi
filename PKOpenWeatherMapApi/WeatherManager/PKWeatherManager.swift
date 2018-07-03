@@ -65,18 +65,24 @@ public class PKWeatherManager {
         }
     }
     
-    private let assembler = PKLiveAssembler()
-    
-    private lazy var networkManager: PKNetworkManagerProtocol = {
-        return self.assembler.resolve()
-    }()
+    private var networkManager: PKNetworkManagerProtocol
     
     private var apiKey: String
     public var preferredUnits: UnitType
     
-    public init(with apiKey:String, preferredUnits:UnitType = .standard) {
+    init(with apiKey:String, preferredUnits:UnitType = .standard, networkManager:PKNetworkManagerProtocol) {
+        
         self.apiKey = apiKey
         self.preferredUnits = preferredUnits
+        self.networkManager = networkManager
+    }
+    
+    public convenience init(with apiKey:String, preferredUnits:UnitType = .standard) {
+        
+        let liveAssembler = PKLiveAssembler()
+        let networkManager = liveAssembler.resolve()
+        
+        self.init(with: apiKey, preferredUnits: preferredUnits, networkManager: networkManager)
     }
     
     fileprivate func generalRequest<T:PKJSONInitializable>(with endPoint:PKWeatherAPIEndPoint, params:[PKQueryParameter:String], completionBlock:@escaping PKNetworkResponse<T>) {

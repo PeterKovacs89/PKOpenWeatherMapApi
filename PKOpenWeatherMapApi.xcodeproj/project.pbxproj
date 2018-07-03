@@ -16,6 +16,8 @@
 		E759DD6C20D137C100523130 /* PKSnowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6B20D137C100523130 /* PKSnowModel.swift */; };
 		E759DD6E20D138FC00523130 /* PKRainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6D20D138FC00523130 /* PKRainModel.swift */; };
 		E759DD7020D16F4700523130 /* PKCityWeatherListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E759DD6F20D16F4700523130 /* PKCityWeatherListModel.swift */; };
+		E7A0F55A20EBA04A00FDD6AE /* PKWeatherManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0F55920EBA04A00FDD6AE /* PKWeatherManagerTests.swift */; };
+		E7A0F55D20EBA64A00FDD6AE /* PKTestNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0F55C20EBA64A00FDD6AE /* PKTestNetworkManager.swift */; };
 		E7DD4B7B20CA80C3003713DC /* PKOpenWeatherMapApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DD4B7120CA80C3003713DC /* PKOpenWeatherMapApi.framework */; };
 		E7DD4B8020CA80C3003713DC /* PKOpenWeatherMapApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD4B7F20CA80C3003713DC /* PKOpenWeatherMapApiTests.swift */; };
 		E7DD4B8220CA80C3003713DC /* PKOpenWeatherMapApi.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,6 +50,8 @@
 		E759DD6B20D137C100523130 /* PKSnowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKSnowModel.swift; sourceTree = "<group>"; };
 		E759DD6D20D138FC00523130 /* PKRainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKRainModel.swift; sourceTree = "<group>"; };
 		E759DD6F20D16F4700523130 /* PKCityWeatherListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCityWeatherListModel.swift; sourceTree = "<group>"; };
+		E7A0F55920EBA04A00FDD6AE /* PKWeatherManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWeatherManagerTests.swift; sourceTree = "<group>"; };
+		E7A0F55C20EBA64A00FDD6AE /* PKTestNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKTestNetworkManager.swift; sourceTree = "<group>"; };
 		E7DD4B7120CA80C3003713DC /* PKOpenWeatherMapApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PKOpenWeatherMapApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DD4B7420CA80C3003713DC /* PKOpenWeatherMapApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKOpenWeatherMapApi.h; sourceTree = "<group>"; };
 		E7DD4B7520CA80C3003713DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +94,14 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		E7A0F55B20EBA63C00FDD6AE /* TestNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				E7A0F55C20EBA64A00FDD6AE /* PKTestNetworkManager.swift */,
+			);
+			path = TestNetworkManager;
+			sourceTree = "<group>";
+		};
 		E7DD4B6720CA80C3003713DC = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +137,9 @@
 		E7DD4B7E20CA80C3003713DC /* PKOpenWeatherMapApiTests */ = {
 			isa = PBXGroup;
 			children = (
+				E7A0F55B20EBA63C00FDD6AE /* TestNetworkManager */,
 				E7DD4B7F20CA80C3003713DC /* PKOpenWeatherMapApiTests.swift */,
+				E7A0F55920EBA04A00FDD6AE /* PKWeatherManagerTests.swift */,
 				E7DD4B8120CA80C3003713DC /* Info.plist */,
 			);
 			path = PKOpenWeatherMapApiTests;
@@ -308,6 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DD4B8020CA80C3003713DC /* PKOpenWeatherMapApiTests.swift in Sources */,
+				E7A0F55A20EBA04A00FDD6AE /* PKWeatherManagerTests.swift in Sources */,
+				E7A0F55D20EBA64A00FDD6AE /* PKTestNetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
